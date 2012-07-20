@@ -1,0 +1,5 @@
+#!/bin/sh
+echo 99 > /proc/sys/kernel/rsuid/uid_min
+echo 99 > /proc/sys/kernel/rsuid/gid_min
+echo 1 > /proc/sys/kernel/rsuid/enabled
+

@@ -1,0 +1,31 @@
+Installation
+
+Simply do a 
+
+make
+make install
+
+README :
+
+This module changes the way certain process can do set*uid() and set*gid()
+calls. The restriction is enforced on a process, and all childs. A root process
+must enable the restriction, and it can't be turned off once enabled.
+
+Semantics :
+
+uid_min	: lower allowed uid
+uid_max : upper allowed uid
+gid_min	: lower allowed gid
+gid_max : upper allowed gid
+
+Root must set uid_min and gid_min before the module can be enabled. See the
+enable_rsuid script for an example.
+
+A process can enable the restrictions by writing 'rsuid enable' into /proc/<pid>/attr/exec. When that happens, a process looses *all* of it's capabilities,
+even before it switches uid / gid.
+
+
+
+Igmar Palsenberg <igmar@palsenberg.com>
+
+
